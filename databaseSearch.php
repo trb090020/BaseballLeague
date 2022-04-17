@@ -3,8 +3,8 @@
 	require_once 'config.php';
 	
 
-	$playerName = $_GET('first');
-	$id = $_GET('id');
+	$playerName = $_GET['first'];
+	$id = $_GET['id'];
 	
 	echo nl2br("You searched for: '$playerName' '$pid' \n");
 		
