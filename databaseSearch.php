@@ -1,11 +1,10 @@
 
 <?php
-	require_once 'config.php';
-	
-
 	$playerName = $_GET['first'];
 	$id = $_GET['id'];
 	
+	require_once 'config.php';
+		
 	echo nl2br("You searched for: '$playerName' '$pid' \n");
 		
 	if($PGDB) echo nl2br("Successfully connected to remote database... \n");
