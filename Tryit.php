@@ -16,7 +16,7 @@
 	$Player = pg_query($db, "SELECT * FROM Player WHERE  ID='$idNo'");
 	}
 	
-	else if(isset($_POST['firstname'])
+	else if(isset($_POST['firstname']))
 	{
 	$firstname=$_POST['firstname'];
 	die($firstname);
