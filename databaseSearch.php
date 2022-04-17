@@ -1,7 +1,7 @@
 
 <?php
-	echo $playerName = $_GET['first'];
-	echo $id = $_GET['id'];
+	$playerName = $_GET['first'];
+	$id = $_GET['id'];
 	
 	require_once 'config.php';
 		
