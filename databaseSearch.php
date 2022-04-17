@@ -1,5 +1,7 @@
 
 <?php
+	ini_set('display_errors', 'on');
+	error_reporting(E_ALL);
 	require_once 'config.php';
 	$playerName = $_GET['first'];
 	$id = $_GET['id'];
