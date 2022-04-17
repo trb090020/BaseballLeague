@@ -7,7 +7,7 @@ echo nl2br("Is this thing on? \n");
 try {
 	$dsn = "pgsql:host=$host;port=5432;dbname=$db;";
 	// make a database connection
-	$pdo = new PDO($dsn, $user, "masterblaster", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+	$pdo = new PDO($dsn, $user, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
 	if ($pdo) {
 		echo nl2br("Connected to the database successfully!\n");
