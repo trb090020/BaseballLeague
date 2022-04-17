@@ -4,10 +4,13 @@
 <p> You searched for: <?php echo $_GET['id']; echo $_GET['first']; ?> </p>
 
 <?php
+	ini_set('display_errors', 'on');
+	error_reporting(E_ALL);
+	require_once 'config.php';
 	$playerName = $_GET['first'];
 	$id = $_GET['id'];
 	
-	require_once 'config.php';
+	printf("test \n" );
 		
 	
 		
@@ -24,6 +27,7 @@
 	}
 	
 ?>
+
 
 </body>
 </html>
