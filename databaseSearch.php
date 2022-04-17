@@ -1,3 +1,7 @@
+<html>
+<body>
+
+<p> You searched for: <?php echo $_GET['id']; echo $_GET['first']; ?> </p>
 
 <?php
 	$playerName = $_GET['first'];
@@ -20,3 +24,6 @@
 	}
 	
 ?>
+
+</body>
+</html>
