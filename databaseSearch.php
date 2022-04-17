@@ -1,9 +1,10 @@
 
 <?php
+	require_once 'config.php';
 	$playerName = $_GET['first'];
 	$id = $_GET['id'];
 	
-	require_once 'config.php';
+	printf("test \n" );
 		
 	
 		
@@ -20,3 +21,6 @@
 	}
 	
 ?>
+
+	
+	
