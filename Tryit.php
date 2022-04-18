@@ -1,25 +1,3 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Player Search</title>
-	</head>
-	<body>
-		<form action="databaseSearch.php" method="post" autocomplete="off">
-			<label for="idNo">
-			ID Number:<input type="text" name="idNo" id ="idNo">
-			</label><br>
-			OR<br>
-			<label for="firstname">
-			First Name:<input type="text" name="firstname" id="firstname">
-			</label><br>
-			<input type="submit" value="Recover">
-		</form>
-	</body>
-</html> 
-
 <?php
 
 	$db = pg_connect("host=ls-99428edba7c928b0c62ad0e6cd11c0ece8660db3.ciw1f5witzxf.us-east-2.rds.amazonaws.com
@@ -54,3 +32,23 @@
 		}
 	}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Player Search</title>
+	</head>
+	<body>
+		<form action="Tryit.php" method="post" autocomplete="off">
+			<label for="idNo">
+			ID Number:<input type="number" name="idNo" id ="idNo">
+			</label><br>
+			OR<br>
+			<label for="firstname">
+			First Name:<input type="text" name="firstname" id="firstname">
+			</label><br>
+			<input type="submit" value="Recover">
+		</form>
+	</body>
+</html> 
