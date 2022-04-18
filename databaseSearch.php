@@ -1,7 +1,7 @@
 <html>
 <body>
 
-<p> You searched for: <?php echo $_GET['id']; echo " " echo $_GET['first']; ?> </p>
+<p> You searched for: <?php echo $_GET['id']; echo " "; echo $_GET['first']; ?> </p>
 
 <?php
 	ini_set('display_errors', 'on');
