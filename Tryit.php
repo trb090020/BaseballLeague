@@ -14,7 +14,7 @@
 	{
 	$firstname=$_POST['firstname'];
 	die($firstname);
-	$Player = pg_query($db, "SELECT * FROM Player WHERE  first_name='$firstname'");
+	$Player = pg_query($db, "SELECT * FROM Player WHERE  first_name='{$firstname}'");
 		
 		if($Player->rowcount())
 	{
