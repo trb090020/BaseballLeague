@@ -18,8 +18,7 @@
 	//connection info comes from config.php
 	// Perform SQL query
 	
-	$result = pg_prepare($PGDB, "playerFetch", "SELECT * FROM Player WHERE first_name = $1 and ID = $2");
-    $result = pg_execute($PGDB, "playerFetch", array($playerName, $id));
+	$result = pg_query($PGDB, "SELECT * FROM Player WHERE first_name='$playerName' and ID='$id'");
 	if ($result) {
 	
 		while($row = pg_fetch_assoc($result)) {
