@@ -9,28 +9,22 @@
 	exit;
 	}
 
-	if(isset($_POST['idNo']))
-	{
-	$idNo = $_POST['idNo'];
-	die($idNo);
-	$Player = pg_query($db, "SELECT * FROM Player WHERE  ID='$idNo'");
-	}
 	
-	else if(isset($_POST['firstname']))
+	if(isset($_POST['firstname']))
 	{
 	$firstname=$_POST['firstname'];
 	die($firstname);
 	$Player = pg_query($db, "SELECT * FROM Player WHERE  first_name='$firstname'");
-	}
-	
-	if($Player)
+		
+		if($Player->rowcount())
 	{
-		while($row = pg_fetch_assoc($Player))
-		{
-			printf("%s    %s    %s", $row["team"], $row["first_name"], $row["last_name"]);
-			echo nl2br("\n");
-		}
+		echo $firstname;
+		echo "<br>";
+		die('No player matching that name was found.');
 	}
+	}
+
+	
 ?>
 
 <!DOCTYPE html>
@@ -41,14 +35,10 @@
 	</head>
 	<body>
 		<form action="Tryit.php" method="post" autocomplete="off">
-			<label for="idNo">
-			ID Number:<input type="number" name="idNo" id ="idNo">
-			</label><br>
-			OR<br>
 			<label for="firstname">
 			First Name:<input type="text" name="firstname" id="firstname">
 			</label><br>
-			<input type="submit" value="Recover">
+			<input type="submit" value="Submit">
 		</form>
 	</body>
 </html> 
