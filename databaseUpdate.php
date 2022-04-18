@@ -12,8 +12,6 @@
 	
 	printf("test \n" );
 		
-	
-		
 	if($PGDB) echo nl2br("Successfully connected to remote database... \n");
 	//connection info comes from config.php
 	// Perform SQL query
@@ -26,15 +24,6 @@
 		}
 	}
 	
-
-
-    
-
-
-   
-
 ?>
-
-
 </body>
 </html>
