@@ -33,6 +33,8 @@
 			<p><a href="/ActiveRoster.php">League Roster</a></p>
 			<p><a href="/Tryit.php">Try it</a></p>
 			<p><a href="/test.php">Test Connection</a></p>
+			<p><a href="/databaseUpdateForm.php">Test Connection</a></p>
+
     	<?php
     }
 ?>
