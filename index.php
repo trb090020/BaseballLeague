@@ -30,7 +30,7 @@
     {
     	// HTML output for webpage without a logged in account
     	?>
-    		<p><b>Please login <a href="/LoginPage.php">here</a></b></p>
+    		<p><b>Please login <a href="/LoginPage.php">here</a> or create an account <a href="/CreateAccount.php">here</a></b></p>
     	<?php
     }
 
