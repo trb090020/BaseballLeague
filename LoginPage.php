@@ -86,7 +86,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <h2>Login Page</h2><br>
+        <h1><b>Login Page</b></h1><br>
         <div class="login">
             <form method="POST">
                 <label>
@@ -94,17 +94,16 @@
                 </label>
                 <input type="text" name="Uname" id="Uname" placeholder="Username">
                 <br><br>
-
                 <label>
                     <b>Passwords</b>
                 </label>
                 <input type="Password" name="Pass" id="Pass" placeholder="Password">
                 <br><br>
-                <button name="login" id="log">
-                    Log In Here
+                <button name="login" id="login">
+                    Submit
                 </button>
                 <br><br>
-                <a href="/CreateAccount.php">Create Account</a>
+                <a class="rightLink" href="/CreateAccount.php">Create Account</a>
             </form>
         </div>
     </body>

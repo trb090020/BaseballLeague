@@ -86,7 +86,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <h2>Create Account</h2><br>
+        <h1><b>Create Account</b></h1><br>
         <div class="login">
             <form method="POST">
                 <label>
@@ -104,7 +104,7 @@
                     Submit
                 </button>
                 <br><br>
-                <a href="/LoginPage.php">Login</a>
+                <a class="rightLink" href="/LoginPage.php">Login</a>
             </form>
         </div>
     </body>

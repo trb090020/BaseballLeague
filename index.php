@@ -22,20 +22,36 @@
 	    	<h1>
 	    		Hello, <?php echo $_SESSION["Uname"] ?>
 			</h1>
+			<br/>
+
     	<?php
     }
     else
     {
     	// HTML output for webpage without a logged in account
     	?>
-    		<p>Please login <a href="/LoginPage.php">here</a></p>
+    		<p><b>Please login <a href="/LoginPage.php">here</a></b></p>
     	<?php
     }
 
 ?>
 
-<p><a href="/databaseSearchForm.php">Form: Search Database</a></p>
-<p><a href="/ActiveRoster.php">League Roster</a></p>
-<p><a href="/Tryit.php">Try it</a></p>
-<p><a href="/test.php">Test Connection</a></p>
-<p><a href="/databaseUpdateForm.php">Update Player Name</a></p>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Index</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<p class="ex2"><b>Baseball League</b></p>
+		<div class="links">
+			<p><a href="/databaseSearchForm.php">Form: Search Database</a></p>
+			<p><a href="/ActiveRoster.php">League Roster</a></p>
+			<p><a href="/Tryit.php">Try it</a></p>
+			<p><a href="/test.php">Test Connection</a></p>
+			<p><a href="/databaseUpdateForm.php">Update Player Name</a></p>
+		</div>
+    </body>
+</html>
