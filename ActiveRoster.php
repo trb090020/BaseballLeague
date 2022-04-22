@@ -1,19 +1,53 @@
-<?php
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Active Roster</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<h1><b>Active Roster</b></h1><br>
+		<div class="login">
+			<?php
+				require_once 'config.php';
 
-	require_once 'config.php';
-	if($PGDB) echo nl2br("Successfully connected to remote database... \n");
-	//connection info comes from config.php
-	// Perform SQL query
-	$result = pg_query($PGDB, "SELECT * FROM Player");
-	
-	// Printing results
-	if($result)
-	{
-		while($row = pg_fetch_assoc($result))
-		{
-			printf("%s    %s    %s", $row["team"], $row["first_name"], $row["last_name"]);
-			echo nl2br("\n");
-		}
-	}
+				try {
+					$dsn = "pgsql:host=$host;port=5432;dbname=$db;";
+					
+					// Make a database connection using info from config.php
+					if ($PGDB) 
+					{
+						// HTML output
+						?>
+							<p class="text">Successfully connected to remote database.</p>
+							<p class="text"><b>Roster:</b></p>
+							<p class="text"><b>Team <?php echo str_repeat('&nbsp;', 3); ?> First Name <?php echo str_repeat('&nbsp;', 3); ?> Last Name</b></p>
+						<?php
+					}
+				} 
+				catch (PDOException $e) 
+				{
+					die($e->getMessage());
+				}
 
-?>
+				// Perform SQL query
+				$result = pg_query($PGDB, "SELECT * FROM Player");
+
+				// Printing results
+				if($result)
+				{
+					while($row = pg_fetch_assoc($result))
+					{
+						$team = $row["team"];
+						$fname = $row["first_name"];
+						$lname = $row["last_name"];
+
+						?>
+							<p class="text"><?php echo $team; echo str_repeat('&nbsp;', 8); echo $fname; echo str_repeat('&nbsp;', 18); echo $lname; ?></p>
+						<?php
+					}
+				}
+			?>
+
+		</div>
+    </body>
+</html>
