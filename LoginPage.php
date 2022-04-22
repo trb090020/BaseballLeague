@@ -13,6 +13,7 @@
 
     
     include_once("./Header.php");
+    include_once("./Users.php");
 
 
     // Attempts to login into an account
@@ -35,23 +36,24 @@
             {
                 throw new Exception("Value $required_value cannot be empty");
             }
-
-            // Set form username and password to PHP variables
-            $username = $_POST["Uname"];
-            $password = $_POST["Pass"];
         }
 
+        // Set form username and password to PHP variables
+        $username = $_POST["Uname"];
+        $password = $_POST["Pass"];
 		
-        // TODO: Get values from DB
-		//prepared statement
-		$stmt = $dbh->prepare("select * from Users where username=?");
-		$stmt->bindParam(1, $username);
-		$stmt->execute([$_GET['password']]);
-		
-		$row_data = pg_fetch_row($stmt);
-			
-        // TODO: Compare form values with DB values
-		if($row_data[0] != $password) return false;
+		if($user = getUserInfoByUsername($username)) 
+        {
+            // Check if user info is correct
+            if($password != $user["Pass"]) 
+            {
+                // TODO: logic for if password is incorrect
+            }
+        }
+        else 
+        {
+            // TODO: no username found, maybe prompt to create an account?
+        }
 
         // Stores username of user newly logged in 
         $_SESSION["Uname"] = $username;

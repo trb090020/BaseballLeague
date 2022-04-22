@@ -1,31 +1,31 @@
 <?php
 
-	$db = pg_connect("host=ls-99428edba7c928b0c62ad0e6cd11c0ece8660db3.ciw1f5witzxf.us-east-2.rds.amazonaws.com
-    dbname=BaseballLeague user=dbmasteruser password=masterblaster");
+	include_once("./config.php");
+
+	$db = $PGDB;
 	
 	if(!$db)
 	{
-	echo "An error occurred.\n";
-	exit;
+		echo "An error occurred.\n";
+		exit;
 	}
 
-	
 	if(isset($_POST['firstname']))
 	{
-	$firstname=$_POST['firstname'];
-	die($firstname);
-	$Player = pg_query($db, "SELECT * FROM Player WHERE  first_name='{$firstname}'");
+		$firstname=$_POST['firstname'];
+		die($firstname);
+		$Player = pg_query($db, "SELECT * FROM Player WHERE  first_name='{$firstname}'");
 		
 		if($Player->rowcount())
-	{
-		echo $firstname;
-		echo "<br>";
-		die('No player matching that name was found.');
-	}
+		{
+			echo $firstname;
+			echo "<br>";
+			die('No player matching that name was found.');
+		}
 	}
 
-	
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

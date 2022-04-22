@@ -14,6 +14,7 @@
 
 
     include_once("./Header.php");
+    include_once("./Users.php");
 
 
     // Attempts to create an account
@@ -42,10 +43,17 @@
             $password = $_POST["Pass"];
         }
 
-
-        // TODO: Compare form values with DB values
-        // TODO: Set values in DB if not found
-
+        if(getUserInfoByUsername($username))
+        {
+            // TODO: User already exists, notify user
+        }
+        else 
+        {
+            if(createNewUser($username, $password))
+            {
+                // TODO: Notify user that account was successfully created
+            }
+        }
 
         // Stores username of newly created and logged into account
         $_SESSION["Uname"] = $username;
