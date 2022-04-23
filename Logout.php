@@ -6,5 +6,7 @@
 	{
 		unset($_SESSION["Uname"]);
 	}
+	
+	
 
 ?>
