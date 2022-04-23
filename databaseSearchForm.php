@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Database Search Form</title>
+        <title>Search DB for Player</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 	<body>

@@ -16,9 +16,8 @@
 					// Make a database connection using info from config.php
 					if ($PGDB) 
 					{
-						// HTML output
 						?>
-							<p class="text">Successfully connected to remote database.</p>
+							<p class="text">-Successfully connected to remote database-</p>
 							<br/>
 							<p class="text"><b>Roster:</b></p>
 							<p class="text"><b>Team <?php echo str_repeat('&nbsp;', 3); ?> First Name <?php echo str_repeat('&nbsp;', 3); ?> Last Name</b></p>
@@ -48,12 +47,8 @@
 					}
 				}
 
-				?>
-					<form><input type="button" class="right" value="Back" onclick="history.back()"></form>
-				<?php
-				
 			?>
-
+			<form><input type="button" class="right" value="Back" onclick="history.back()"></form>
 		</div>
     </body>
 </html>

@@ -48,11 +48,11 @@
 	<body>
 		<p class="ex2"><b>Baseball League</b></p>
 		<div class="links">
-			<p><a href="/databaseSearchForm.php">Form: Search Database</a></p>
+			<p><a href="/test.php">Test Database Connection</a></p>
+			<p><a href="/databaseSearchForm.php">Find Player in Database</a></p>
 			<p><a href="/ActiveRoster.php">League Roster</a></p>
-			<p><a href="/Tryit.php">Try it</a></p>
-			<p><a href="/test.php">Test Connection</a></p>
 			<p><a href="/databaseUpdateForm.php">Update Player Name</a></p>
+			<p><a href="/Tryit.php">Try it</a></p>
 		</div>
     </body>
 </html>
