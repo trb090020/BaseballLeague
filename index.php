@@ -19,9 +19,10 @@
     	// HTML output for webpage with a successfully logged in account
     	?>
 	    	<br/>
-	    	<h1>
+	    	<p><h1>
 	    		Hello, <?php echo $_SESSION["Uname"] ?>
-			</h1>
+			</h1></p>
+			<p><a action="/Logout.php">Click here to logout</a></p>
 			<br/>
 
     	<?php
