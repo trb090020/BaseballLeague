@@ -22,7 +22,7 @@
 	    	<p><h1>
 	    		Hello, <?php echo $_SESSION["Uname"] ?>
 			</h1></p>
-			<p><a action="/Logout.php">Click here to logout</a></p>
+			<p><h2><a action="/Logout.php">Click here to logout</a></h2></p>
 			<br/>
 
     	<?php
