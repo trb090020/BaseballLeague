@@ -19,6 +19,7 @@
 						// HTML output
 						?>
 							<p class="text">Successfully connected to remote database.</p>
+							<br/>
 							<p class="text"><b>Roster:</b></p>
 							<p class="text"><b>Team <?php echo str_repeat('&nbsp;', 3); ?> First Name <?php echo str_repeat('&nbsp;', 3); ?> Last Name</b></p>
 						<?php
@@ -46,6 +47,11 @@
 						<?php
 					}
 				}
+
+				?>
+					<form><input type="button" class="right" value="Back" onclick="history.back()"></form>
+				<?php
+				
 			?>
 
 		</div>

@@ -36,6 +36,7 @@
 				// HTML output with PHP variable
 				?>
 					<p class="text">Database name: <?php echo $DBName; ?></p>
+					<form><input type="button" class="right" value="Back" onclick="history.back()"></form>
 				<?php
 			?>
 

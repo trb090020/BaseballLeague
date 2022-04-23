@@ -103,7 +103,7 @@
                 <button name="submit" id="submit">
                     Submit
                 </button>
-                <br><br>
+                <form><input type="button" class="right" value="Back" onclick="history.back()"></form>
                 <a class="rightLink" href="/LoginPage.php">Login</a>
             </form>
         </div>
