@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<body>
+
 <?php
 
 	include_once("./Header.php");
@@ -10,3 +14,8 @@
 	
 
 ?>
+
+<p>Logged out.</p>
+<p><a href="/index.php"> Click here to return to home page.</a></p>
+</body>
+</html>
