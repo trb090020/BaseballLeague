@@ -36,7 +36,7 @@
 					die($e->getMessage());
 				}
 				
-				$result = pg_query($PGDB, "SELECT * FROM Player WHERE first_name='$playerName' and ID='$id'");
+				$result = pg_query($PGDB, "SELECT * FROM Player WHERE first_name='$playerName' or ID='$id'");
 				$numRows = pg_num_rows($result);
 				if ($result) {
 					if($numRows > 0) 
