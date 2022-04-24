@@ -117,6 +117,10 @@ a:link {
     color: red;
 }
 
+/*Visited Link*/
+a:visited {
+	color: white;
+}
 
 /* Mouse over link */
 a:hover {
