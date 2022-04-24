@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
         <title>Search DB for Player</title>
