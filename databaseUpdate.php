@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Change Player's Name</title>
+        <title>Update Player's Information</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 	<body>
-		<h1><b>Change Player's Name</b></h1><br>
+		<h1><b>Update Player's Information</b></h1><br>
 		<div class="login">
 			<?php
 				$number = $_GET['id'];
@@ -18,26 +18,15 @@
 				ini_set('display_errors', 'on');
 				error_reporting(E_ALL);
 				require_once 'config.php';
-				$playerName = $_GET['newFirst'];
 				$id = $_GET['id'];
-									
-				try {
-					$dsn = "pgsql:host=$host;port=5432;dbname=$db;";
-					
-					// Make a database connection using info from config.php
-					if ($PGDB) 
-					{
-						?>
-							<p class="text">-Successfully connected to remote database-</p>
-						<?php
-					}
-				} 
-				catch (PDOException $e) 
-				{
-					die($e->getMessage());
-				}
+				$playerFName = $_GET['newFirst'];
+				$playerLName = $_GET['newLast'];
+				$team = $_GET['newTeam'];
+				$batting = $_GET['newBat'];
+				$throwing = $_GET['newThrow'];
+				$dob = $_GET['newDOB'];
 
-				$udpate_result = pg_query($PGDB, "UPDATE Player SET first_name='$playerName'  WHERE ID='$id'");
+				$udpate_result = pg_query($PGDB, "UPDATE Player SET first_name='$playerFName', last_name='$playerLName', team='$team', batting_hand='$batting', throwing_hand='$throwing', dob='$dob'  WHERE ID='$id'");
 
 				if($udpate_result) 
 				{
@@ -47,10 +36,14 @@
 					$id = $row["id"];
 					$fname = $row["first_name"];
 					$lname = $row["last_name"];
+					$team = $row['team'];
+					$batting = $row['batting_hand'];
+					$throwing = $row['throwing_hand'];
+					$dob = $row['dob'];
 
 					?>
 						<br>
-						<p class="text">Updated Player: <?php echo str_repeat('&nbsp;', 2); echo $id; echo str_repeat('&nbsp;', 3); echo $fname; echo str_repeat('&nbsp;', 3); echo $lname; ?></p>
+						<p class="text">Updated Player: <?php echo str_repeat('&nbsp;', 2); echo $id; echo str_repeat('&nbsp;', 1); echo $fname; echo str_repeat('&nbsp;', 1); echo $lname; echo str_repeat('&nbsp;', 1); echo $team; echo str_repeat('&nbsp;', 1); echo $batting; echo str_repeat('&nbsp;', 1); echo $throwing; echo str_repeat('&nbsp;', 1); echo $dob;?></p>
 					<?php
 				}
 				else
@@ -58,7 +51,7 @@
 					echo "Failed to update";
 				}
 			?>
-			<form><input type="button" class="right" value="Back" onclick="history.back()"></form>
+			<input type="button" class="right" value="Back" onclick="history.back()">
 		</div>
 	</body>
 </html>

@@ -21,22 +21,6 @@
 				$playerName = $_GET['first'];
 				$id = $_GET['id'];
 				
-				try {
-					$dsn = "pgsql:host=$host;port=5432;dbname=$db;";
-					
-					// Make a database connection using info from config.php
-					if ($PGDB) 
-					{
-						?>
-							<p class="text">-Successfully connected to remote database-</p>
-						<?php
-					}
-				} 
-				catch (PDOException $e) 
-				{
-					die($e->getMessage());
-				}
-				
 				$result = pg_query($PGDB, "SELECT * FROM Player WHERE first_name='$playerName' or ID='$id'");
 				$numRows = pg_num_rows($result);
 				if ($result) {
@@ -68,7 +52,7 @@
 				}
 			?>
 
-			<form><input type="button" class="right" value="Back" onclick="history.back()"></form>
+			<input type="button" class="right" value="Back" onclick="history.back()">
 		</div>
 	</body>
 </html>

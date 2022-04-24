@@ -102,7 +102,7 @@
                 <button name="login" id="login">
                     Submit
                 </button>
-                <form><input type="button" class="right" value="Back" onclick="history.back()"></form>
+                <input type="button" class="right" value="Back" onclick="history.back()">
                 <a class="rightLink" href="/CreateAccount.php">Create Account</a>
             </form>
         </div>

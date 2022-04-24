@@ -21,7 +21,7 @@
                 <button name="search" id="login">
                     Search
                 </button>
-                <form><input type="button" class="right" value="Back" onclick="history.back()"></form>
+                <input type="button" class="right" value="Back" onclick="history.back()">
 
 				<!-- ID: <input type="number" name="id"><br>
 				First Name: <input type="text" name="first"><br>

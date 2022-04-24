@@ -91,11 +91,6 @@ label {
 }
 
 
-input.right {
-    float: right;
-}
-
-
 #log {
     width: 300px;  
     height: 30px;  
@@ -103,6 +98,11 @@ input.right {
     border-radius: 17px;  
     padding-left: 7px;  
     color: blue;    
+}
+
+
+input.right {
+    float: right;
 }
 
 
