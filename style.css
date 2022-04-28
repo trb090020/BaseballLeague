@@ -138,7 +138,19 @@ table {
   border-collapse: collapse;
   border: 1px solid black;
 }
-
-th, td {
-  padding: 6px;
-}
+ 
+td {
+            background-color: #FFFFFF;
+            border: 1px solid black;
+        }
+  
+th,td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+  
+        td {
+            font-weight: lighter;
+        }
