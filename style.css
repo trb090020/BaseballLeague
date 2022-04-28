@@ -135,7 +135,10 @@ a.rightLink {
 }
 
 table {
-            margin: 0 auto;
-            font-size: large;
-            border: 1px solid black;
-        }
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 6px;
+}
