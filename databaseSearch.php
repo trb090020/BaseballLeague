@@ -1,8 +1,45 @@
+<?php
+ 
+	$dataPoints = array();;
+	//$dataPoints2 = array();
+	$id = $_GET['id'];
+	
+    //$result = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) FROM AB WHERE PID='$id' ORDER by gdate DESC");
+	$result = pg_query($PGDB, "SELECT DISTINCT DATE(gdate), AVG(strikeCount) as avgStrike FROM ( SELECT gdate, sum(strikes) AS strikeCount FROM AB GROUP BY gdate) GROUP BY gdate ");
+	//$result2 = pg_query($PGDB, "SELECT DISTINCT DATE(gdate), AVG(strikeCount) as avgStrike FROM ( SELECT gdate, sum(strikes) AS strikeCount FROM AB GROUP BY gdate) GROUP BY gdate ");
+	
+    foreach($result as $row){
+        array_push($dataPoints, array("gdate"=> $row->x, "avgStrike"=> $row->y));
+    }
+	
+}
+
+	
+?>
 <!DOCTYPE html>
 <html>
 	<head>
         <title>Search DB for Player</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+		<script>
+		window.onload = function () {
+		
+		var chart = new CanvasJS.Chart("graphContainer", {
+			title: {
+				text: "Date"
+			},
+			axisY: {
+				title: "Strikes"
+			},
+			data: [{
+				type: "line",
+				dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+			}]
+		});
+		chart.render();
+		
+		}
+		</script>
     </head>
 	<body>
 		<h1><b>Search for Player</b></h1><br>
@@ -13,7 +50,8 @@
 			?>
 
 			<p class="text"><b>You searched for: </b><?php echo str_repeat('&nbsp;', 2); echo $number; echo str_repeat('&nbsp;', 2); echo $fname; ?></p>
-
+			<div id="graphContainer" style="height: 400px; width: 100%;"></div>
+			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 			<?php
 				ini_set('display_errors', 'on');
 				error_reporting(E_ALL);
