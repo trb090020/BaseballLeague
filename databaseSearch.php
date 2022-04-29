@@ -1,6 +1,6 @@
 <?php
  
-	$dataPoints = array();;
+	$dataPoints = array();
 	//$dataPoints2 = array();
 	$id = $_GET['id'];
 	
