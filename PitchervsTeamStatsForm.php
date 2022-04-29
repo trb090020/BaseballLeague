@@ -29,7 +29,7 @@
 				<section>
 					<h2>Pitcher Roster</h2>
 					<!-- TABLE CONSTRUCTION-->
-					<table>
+					<table class="center">
 						<tr>
 							<th>Last Name</th>
 							<th>First Name</th>
