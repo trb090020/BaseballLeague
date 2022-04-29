@@ -8,7 +8,7 @@
 				<h1><b>Pitcher vs. Team Statistics</b></h1><br>
 					<div class="login">
 					
-						<form action="PitcherStats.php" method="get">
+						<form action="PitchervsTeamStats.php" method="get">
 								<label>
 								<b>Pitcher's ID</b>
 								</label>
