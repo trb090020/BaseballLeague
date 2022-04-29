@@ -4,11 +4,11 @@
 	//$dataPoints2 = array();
 
     //$result = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) FROM AB WHERE PID='$id' ORDER by gdate DESC");
-	$result = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) , AVG(strikeCount) as avgStrike FROM ( SELECT gdate , sum(strikes) AS strikeCount FROM AB GROUP BY gdate) AS foo GROUP BY gdate   ");
+	$result = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) as bdate , AVG(strikeCount) as avgStrike FROM ( SELECT gdate , sum(strikes) AS strikeCount FROM AB GROUP BY gdate) AS foo GROUP BY gdate   ");
 	//$result2 = pg_query($PGDB, "SELECT DISTINCT DATE(gdate), AVG(strikeCount) as avgStrike FROM ( SELECT gdate, sum(strikes) AS strikeCount FROM AB GROUP BY gdate) GROUP BY gdate ");
 	
     foreach($result as $row){
-        array_push($dataPoints, array("gdate"=> $row->x, "avgStrike"=> $row->y));
+        array_push($dataPoints, array("bdate"=> $row->x, "avgStrike"=> $row->y));
     }
 	
 
