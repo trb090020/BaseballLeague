@@ -53,7 +53,7 @@
 			<p><a href="/databaseSearchForm.php">Find Player in Database</a></p>
 			<p><a href="/AddNewPlayerForm.php">Add New Player</a></p>
 			<p><a href="/databaseUpdateForm.php">Update Player's Information</a></p>
-			<!-- <p><a href="/Tryit.php">Try it</a></p> -->
+			<p><a href="/PitchervsTeamStatsForm.php">Pitcher vs. Team Statistics</a></p>
 		</div>
     </body>
 </html>
