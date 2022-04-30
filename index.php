@@ -42,7 +42,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Index</title>
+		<title>Baseball League|Home Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
