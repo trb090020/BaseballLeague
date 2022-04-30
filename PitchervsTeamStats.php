@@ -92,7 +92,13 @@
 													ORDER BY public.atbatdetails.gdate DESC");
 					
 			?>
-			<h2> <?php echo $fname1; echo str_repeat('&nbsp;', 1); echo $lname1; echo str_repeat('&nbsp;', 1); echo "vs. "; echo $team; ?> </h2>
+			<h2> <?php 
+				while ($rowsf = pg_fetch_assoc($fname1)){echo $rowsf['first_name'];} 
+				echo str_repeat('&nbsp;', 1); 
+				while ($rowsl = pg_fetch_assoc($lname1)){echo $rowsl['last_name'];} 
+				echo str_repeat('&nbsp;', 1); echo "vs. "; echo $team; 
+				?> 
+			</h2>
 			<hr size="1" width="100%" color="black">
 			
 			<h2><b>All-Time</b></h2>		
