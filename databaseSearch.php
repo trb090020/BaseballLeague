@@ -8,14 +8,12 @@
 	$result2 = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) as bdate , AVG(ballCount) as avgBall FROM ( SELECT gdate , sum(balls) AS ballCount FROM AB GROUP BY gdate) AS foo GROUP BY gdate   ");
 	
     foreach($result as $row){
-	echo("<script>console.log($row["avgStrike"]);</script>");
-	echo("<script>console.log($row["bdate"]));</script>");
-	echo("<script>console.log("test");</script>");
+	
 
-        array_push($dataPoints, array("x"=> $row["bdate"], "y"=> $row["avgStrike"]));
+        array_push($dataPoints, array("x"=> $row->bdate, "y"=> $row->avgStrike));
     }
     foreach($result2 as $row){
-        array_push($dataPoints, array("x"=> $row["bdate"], "y"=> $row["avgBall"]));
+        array_push($dataPoints, array("x"=> $row->bdate, "y"=> $row->avgBall));
     }
 
 
