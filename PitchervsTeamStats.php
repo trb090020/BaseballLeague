@@ -192,8 +192,8 @@
 							<td><?php echo $rows3['balls']; ?></td>
 							<td><?php echo $rows3['bases']; ?></td>
 							<td><?php echo $rows3['atbatcount']; ?></td>
-							<td><?php echo $rows3['percentHits']; ?></td>
-							<td><?php echo $rows3['PercentStrikeOuts']; ?></td>
+							<td><?php echo $rows3['phits']; ?></td>
+							<td><?php echo $rows3['pso']; ?></td>
 						</tr>
 					<?php
 							}
