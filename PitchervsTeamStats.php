@@ -92,7 +92,9 @@
 													ORDER BY public.atbatdetails.gdate DESC");
 					
 			?>
-			<h2> <?php echo $pitcherfname;?> <?php echo $pitcherlname;?> vs. <?php echo $team;?> </h2>
+		<?php 
+		echo "<h2><b>" . $pitcherfname . " " . $pitcherlname. " vs. " . $team . "</b></h2>";
+		?> 
 			<hr size="1" width="100%" color="black">
 			
 			<h2><b>All-Time</b></h2>		
