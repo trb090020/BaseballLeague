@@ -8,7 +8,7 @@
 	//$result2 = pg_query($PGDB, "SELECT DISTINCT DATE(gdate), AVG(strikeCount) as avgStrike FROM ( SELECT gdate, sum(strikes) AS strikeCount FROM AB GROUP BY gdate) GROUP BY gdate ");
 	
     foreach($result as $row){
-        array_push($dataPoints, array("bdate"=> $row->x, "avgStrike"=> $row->y));
+        array_push($dataPoints, array("x"=> $row->["bdate"], "y"=> $row->["avgStrike"]));
     }
 	
 
