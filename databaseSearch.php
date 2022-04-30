@@ -8,8 +8,10 @@
 	$result2 = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) as bdate , AVG(ballCount) as avgBall FROM ( SELECT gdate , sum(balls) AS ballCount FROM AB GROUP BY gdate) AS foo GROUP BY gdate   ");
 	
     foreach($result as $row){
-	console.log($row["bdate"]);
-	console.log($row["avgStrike"]);
+	echo("<script>console.log($row["avgStrike"]);</script>");
+	echo("<script>console.log($row["bdate"]));</script>");
+	echo("<script>console.log("test");</script>");
+
         array_push($dataPoints, array("x"=> $row["bdate"], "y"=> $row["avgStrike"]));
     }
     foreach($result2 as $row){
@@ -68,8 +70,8 @@
 			?>
 
 			<p class="text"><b>You searched for: </b><?php echo str_repeat('&nbsp;', 2); echo $number; echo str_repeat('&nbsp;', 2); echo $fname; ?></p>
-			<div id="graphContainer" style="height: 400px; width: 100%;"></div>
-			<div id="graphContainer2" style="height: 400px; width: 100%;"></div>
+			<div><div id="graphContainer" style="height: 400px; width: 100%;"></div>
+			<div id="graphContainer2" style="height: 400px; width: 100%;"></div></div>
 			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 			<?php
 				ini_set('display_errors', 'on');
