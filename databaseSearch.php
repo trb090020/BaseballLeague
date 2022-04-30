@@ -1,20 +1,29 @@
 <?php
- 
+    require_once 'config.php';
 	$dataPoints = array();
 	$dataPoints2 = array();
-
+	$id = $_GET['id'];
  
-	$result = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) as bdate , AVG(strikeCount) as avgStrike FROM ( SELECT gdate , sum(strikes) AS strikeCount FROM AB GROUP BY gdate) AS foo GROUP BY gdate   ");
-	$result2 = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) as bdate , AVG(ballCount) as avgBall FROM ( SELECT gdate , sum(balls) AS ballCount FROM AB GROUP BY gdate) AS foo GROUP BY gdate   ");
+	$result = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) as bdate , AVG(strikeCount) as avgStrike FROM ( SELECT gdate , sum(strikes) AS strikeCount FROM AB WHERE ABNO = '$id' GROUP BY gdate) AS foo GROUP BY gdate   ");
+	$result2 = pg_query($PGDB, "SELECT DISTINCT DATE(gdate) as bdate , AVG(ballCount) as avgBall FROM ( SELECT gdate , sum(balls) AS ballCount FROM  AB where ABNO = '$id' GROUP BY gdate) AS foo GROUP BY gdate   ");
 	
-    foreach($result as $row){
-	
+    while ($row = pg_fetch_row($result)) {
+		
+		$time = strtotime($row[0]);
+		//$time = date('Y-m-d',$time);
+		
+		$time = $time *1000; // javascript and php have different scales of time
+		array_push($dataPoints, array("x"=> $time, "y"=> $row[1]));
+	}
+	while ($row = pg_fetch_row($result2)) {
+		$time = strtotime($row[0]);
+		//$time = date('Y-m-d',$time);
+		$time = $time *1000;
+		array_push($dataPoints2, array("x"=> $time, "y"=> $row[1]));
+	}
 
-        array_push($dataPoints, array("x"=> $row->bdate, "y"=> $row->avgStrike));
-    }
-    foreach($result2 as $row){
-        array_push($dataPoints, array("x"=> $row->bdate, "y"=> $row->avgBall));
-    }
+        
+   
 
 
 	
@@ -29,7 +38,7 @@
 		
 		var chart = new CanvasJS.Chart("graphContainer", {
 			title: {
-				text: "Pitcher"
+				text: "Pitcher average strikes"
 			},
 			axisY: {
 				title: "Strikes"
@@ -39,18 +48,23 @@
 			},
 			data: [{
 				type: "line",
+				xValueType: "dateTime",
 				dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 			}]
 		});
 		var chart2 = new CanvasJS.Chart("graphContainer2", {
 			title: {
-				text: "Batter"
+				text: "Batter Average Balls"
 			},
 			axisY: {
-				title: "balls"
+				title: "Balls"
+			},
+			axisX: {
+				title: "Date"
 			},
 			data: [{
 				type: "line",
+				xValueType: "dateTime",
 				dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 			}]
 		});	       
@@ -113,3 +127,4 @@
 		</div>
 	</body>
 </html>
+
