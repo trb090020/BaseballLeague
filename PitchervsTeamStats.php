@@ -19,8 +19,8 @@
 							catch (PDOException $e) 
 							{die($e->getMessage());}
 							
-							$pitcherfname = pg_query($PGDB, "SELECT first_name FROM public.allpitchers WHERE public.allpitchers.id = '$id'");
-							$pitcherlname = pg_query($PGDB, "SELECT last_name FROM public.allpitchers WHERE public.allpitchers.id = '$id'");
+							$fname1 = pg_query($PGDB, "SELECT first_name FROM public.allpitchers WHERE public.allpitchers.id = '$id'");
+							$lname1 = pg_query($PGDB, "SELECT last_name FROM public.allpitchers WHERE public.allpitchers.id = '$id'");
 							
 							$result1 = pg_query($PGDB, "SELECT 
 													ROUND(AVG(strikes),2) AS Strikes,
@@ -92,9 +92,7 @@
 													ORDER BY public.atbatdetails.gdate DESC");
 					
 			?>
-		<?php 
-		echo "<h2><b>" . $pitcherfname . " " . $pitcherlname. " vs. " . $team . "</b></h2>";
-		?> 
+			<h2> <?php echo $fname1; echo str_repeat('&nbsp;', 1); echo $lname1; echo str_repeat('&nbsp;', 1); echo "vs. "; echo $team; ?> </h2>
 			<hr size="1" width="100%" color="black">
 			
 			<h2><b>All-Time</b></h2>		
