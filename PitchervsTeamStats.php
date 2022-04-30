@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Update Player's Information</title>
+        <title>Pitcher vs. Team Statistics</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 	<body>
-		<h1><b>Pitcher vs. Team Statistics</b></h1><br>
+		<h1><b>Pitcher vs. Team Statistics</b></h1>
 			<?php
 				$id = $_GET['id'];
 				$team = $_GET['team'];
@@ -29,8 +29,8 @@
 													COUNT(*) AS AtBatCount,
 													COUNT(case when abresult='H' then 1 end) as Hits,
 													COUNT(case when abresult='O' then 1 end) as StrikeOuts,
-													ROUND((COUNT(case when abresult='H' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS percentHits,
-													ROUND((COUNT(case when abresult='O' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS PercentStrikeOuts
+													ROUND((COUNT(case when abresult='H' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS phits,
+													ROUND((COUNT(case when abresult='O' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS pso
 													FROM public.atbatdetails
 													WHERE public.atbatdetails.pid = '$id'
 													AND public.atbatdetails.batterteam = '$team' ");
@@ -42,8 +42,8 @@
 													COUNT(*) AS AtBatCount,
 													COUNT(case when abresult='H' then 1 end) as Hits,
 													COUNT(case when abresult='O' then 1 end) as StrikeOuts,
-													ROUND((COUNT(case when abresult='H' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS percentHits,
-													ROUND((COUNT(case when abresult='O' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS PercentStrikeOuts
+													ROUND((COUNT(case when abresult='H' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS phits,
+													ROUND((COUNT(case when abresult='O' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS pso
 													FROM public.atbatdetails
 													WHERE public.atbatdetails.pid = '$id' AND 
 													public.atbatdetails.batterteam ='$team' AND 
@@ -62,8 +62,8 @@
 													COUNT(*) AS AtBatCount,
 													COUNT(case when abresult='H' then 1 end) as Hits,
 													COUNT(case when abresult='O' then 1 end) as StrikeOuts,
-													ROUND((COUNT(case when abresult='H' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS percentHits,
-													ROUND((COUNT(case when abresult='O' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS PercentStrikeOuts
+													ROUND((COUNT(case when abresult='H' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS phits,
+													ROUND((COUNT(case when abresult='O' then 1 end)*100.0)/(COUNT(*)*1.0),2) AS pso
 													FROM public.atbatdetails
 													WHERE public.atbatdetails.pid = '$id' AND 
 													public.atbatdetails.batterteam ='$team' AND 
@@ -92,11 +92,10 @@
 													ORDER BY public.atbatdetails.gdate DESC");
 					
 			?>
-			<p class="text"><b>Statistics: <?php echo $pitcherfname;?> <?php echo $pitcherlname;?> vs. <?php echo $team;?> </b></p>
-
+			<h2> <?php echo $pitcherfname;?> <?php echo $pitcherlname;?> vs. <?php echo $team;?> </h2>
 			<hr size="1" width="100%" color="black">
-			<h2><b>All- Time</b></h2><br>	
 			
+			<h2><b>All-Time</b></h2>		
 			<section>
 					<!-- TABLE CONSTRUCTION-->
 					<table class="center">
@@ -121,8 +120,8 @@
 							<td><?php echo $rows1['balls']; ?></td>
 							<td><?php echo $rows1['bases']; ?></td>
 							<td><?php echo $rows1['atbatcount']; ?></td>
-							<td><?php echo $rows1['percentHits']; ?></td>
-							<td><?php echo $rows1['PercentStrikeOuts']; ?></td>
+							<td><?php echo $rows1['phits']; ?></td>
+							<td><?php echo $rows1['pso']; ?></td>
 						</tr>
 					<?php
 							}
@@ -132,7 +131,7 @@
 			</section>
 				
 			<hr size="1" width="100%" color="black">
-			<h2><b>Last 10 Games</b></h2><br>	
+			<h2><b>Last 10 Games</b></h2>
 			<section>
 					<!-- TABLE CONSTRUCTION-->
 					<table class="center">
@@ -157,8 +156,8 @@
 							<td><?php echo $rows2['balls']; ?></td>
 							<td><?php echo $rows2['bases']; ?></td>
 							<td><?php echo $rows2['atbatcount']; ?></td>
-							<td><?php echo $rows2['percentHits']; ?></td>
-							<td><?php echo $rows2['PercentStrikeOuts']; ?></td>
+							<td><?php echo $rows2['phits']; ?></td>
+							<td><?php echo $rows2['pso']; ?></td>
 						</tr>
 					<?php
 							}
@@ -204,7 +203,7 @@
 				</section>
 				
 				<hr size="1" width="100%" color="black">
-				<h2><b>All At Bat Records</b></h2><br>
+				<h2><b>All At Bat Records</b></h2>
 				
 				<section>
 					<!-- TABLE CONSTRUCTION-->
@@ -247,7 +246,5 @@
 					</table>
 					
 				</section>	
-
-		</div>
 	</body>
 </html>
