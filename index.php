@@ -54,7 +54,7 @@
 			<p><a href="/AddNewPlayerForm.php">Add New Player</a></p>
 			<p><a href="/databaseUpdateForm.php">Update Player's Information</a></p>
 			<p><a href="/PitchervsTeamStatsForm.php">Pitcher vs. Team Statistics</a></p>
-			<p><a href="/SpedificPitcherVsBattersForm.php">Specific Pitcher vs Batter</a></p>
+			<p><a href="/SpecificPitcherVsBattersForm.php">Specific Pitcher vs Batter</a></p>
 		</div>
     </body>
 </html>
